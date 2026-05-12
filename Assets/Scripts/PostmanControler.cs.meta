@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 14fb5e5840e6a4f4886679a4dfbe2786
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fundsText: {instanceID: 0}
+  - completionPanel: {fileID: 100000, guid: fdad9d952ae84cafb74c63f2e694d042, type: 3}
+  - agent: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.InputSystem; // Added this for the new Input System
+using UnityEngine.InputSystem;
 
 public class playerMovement : MonoBehaviour
 {
@@ -23,7 +23,6 @@ public class playerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         startPosition = transform.position;
-        // Optional: keeps the player from falling over
         rb.freezeRotation = true;
     }
 
@@ -40,14 +39,12 @@ public class playerMovement : MonoBehaviour
 
     void HandleInput()
     {
-        // New Input System check for Space Key
         if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
 
-        // New Input System check for Left Shift
         if (Keyboard.current.leftShiftKey.wasPressedThisFrame && boostTimer < maxBoostDuration)
         {
             isBoosting = true;
@@ -76,12 +73,10 @@ public class playerMovement : MonoBehaviour
     {
         float currentForwardSpeed = isBoosting ? forwardSpeed * boostMultiplier : forwardSpeed;
 
-        // New Input System way to get A/D or Arrow keys
         float moveHorizontal = 0;
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) moveHorizontal = -1;
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) moveHorizontal = 1;
 
-        // Note: I used .velocity here as it's standard, change back to .linearVelocity if using Unity 6
         Vector3 movement = new Vector3(moveHorizontal * sideSpeed, rb.linearVelocity.y, currentForwardSpeed);
         rb.linearVelocity = movement;
     }

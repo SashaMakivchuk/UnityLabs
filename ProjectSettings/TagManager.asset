@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - DeathZone
   - Ground
+  - House
   layers:
   - Default
   - TransparentFX
